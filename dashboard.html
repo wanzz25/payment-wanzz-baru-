@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Wanzz Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow-orb one"></div>
+<div class="glow-orb two"></div>
+
+<div class="dash-shell">
+  <aside class="sidebar">
+    <div class="logo" style="margin-bottom:24px;">
+      <img src="assets/logo.png" class="logo-mark" alt="Wanzz Payment">
+      Wanzz Payment
+    </div>
+    <a class="side-link active">📊 Ringkasan</a>
+    <a class="side-link" data-toast="Membuka riwayat transaksi…">🧾 Transaksi</a>
+    <a class="side-link" id="openQrisDemo">▦ QRIS</a>
+    <a class="side-link" data-toast="Membuka menu pulsa &amp; data…">📶 Pulsa &amp; Data</a>
+    <a class="side-link" data-toast="Membuka payment gateway…">💳 Payment Gateway</a>
+    <a class="side-link" data-toast="Membuka pengaturan…">⚙️ Pengaturan</a>
+    <a class="side-link" href="index.html" style="margin-top:auto;">← Kembali ke Beranda</a>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-top">
+      <div>
+        <h1>Ringkasan Akun</h1>
+        <p>Pantau saldo dan transaksi semua metode pembayaran di satu tempat.</p>
+      </div>
+      <button class="btn btn-primary" data-toast="Tautan penarikan dana disalin.">Tarik Dana</button>
+    </div>
+
+    <div class="balance-card">
+      <span>Saldo Tersedia</span>
+      <h2 class="mono" id="balanceValue">Rp 48.250.000</h2>
+      <div class="balance-actions">
+        <button id="openQrisDemo2">+ Terima QRIS</button>
+        <button data-toast="Membuka form isi pulsa.">+ Isi Pulsa</button>
+        <button data-toast="Membuka payment gateway.">+ Gateway</button>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">▦</div><span class="mono">Hari ini</span></div>
+        <h3>Rp 6.120.000</h3>
+        <span>Masuk lewat QRIS</span>
+      </div>
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">📶</div><span class="mono">Hari ini</span></div>
+        <h3>184 transaksi</h3>
+        <span>Pulsa &amp; paket data terjual</span>
+      </div>
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">💳</div><span class="mono">Hari ini</span></div>
+        <h3>Rp 12.740.000</h3>
+        <span>Masuk lewat Payment Gateway</span>
+      </div>
+    </div>
+
+    <div class="table-card">
+      <div class="table-head">
+        <h3>Transaksi Terbaru</h3>
+        <button class="btn btn-ghost" style="padding:8px 18px;font-size:.8rem;" data-toast="Menampilkan semua transaksi.">Lihat Semua</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Metode</th><th>Nominal</th><th>Status</th><th>Waktu</th></tr>
+        </thead>
+        <tbody id="txBody">
+          <tr><td class="mono">WZ-88213</td><td>QRIS</td><td class="mono">Rp 250.000</td><td><span class="badge success">Berhasil</span></td><td>2 menit lalu</td></tr>
+          <tr><td class="mono">WZ-88212</td><td>Pulsa Telkomsel</td><td class="mono">Rp 55.000</td><td><span class="badge success">Berhasil</span></td><td>9 menit lalu</td></tr>
+          <tr><td class="mono">WZ-88211</td><td>Virtual Account BCA</td><td class="mono">Rp 1.200.000</td><td><span class="badge pending">Diproses</span></td><td>18 menit lalu</td></tr>
+          <tr><td class="mono">WZ-88210</td><td>Kartu Kredit</td><td class="mono">Rp 890.000</td><td><span class="badge success">Berhasil</span></td><td>34 menit lalu</td></tr>
+          <tr><td class="mono">WZ-88209</td><td>QRIS</td><td class="mono">Rp 40.000</td><td><span class="badge success">Berhasil</span></td><td>52 menit lalu</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<!-- QRIS demo modal (client-side only, no backend) -->
+<div class="qris-modal" id="qrisModal">
+  <div class="qris-modal-card">
+    <button class="qris-modal-close" id="closeQrisModal">✕</button>
+    <h3>Demo QRIS Wanzz Payment</h3>
+    <p class="modal-sub">Contoh tampilan QRIS untuk simulasi — belum terhubung ke pembayaran sungguhan.</p>
+    <div class="qr-card small">
+      <img src="assets/qris-demo.png" alt="Demo QRIS" class="qr-real-img">
+      <div class="scan-line"></div>
+    </div>
+    <button class="btn btn-primary" id="simulatePay" style="width:100%;justify-content:center;margin-top:18px;">Tandai Sudah Dibayar (Demo)</button>
+    <div id="qrisModalStatus" class="modal-status"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
